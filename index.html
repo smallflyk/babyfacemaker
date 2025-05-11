@@ -3,20 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BabyFaceMaker - AI Baby Generator | Create Your Future Baby's Face</title>
-    <meta name="description" content="BabyFaceMaker is the leading AI baby generator that helps you visualize your future baby by combining photos of both parents. Upload your photos and see your baby's potential appearance!">
-    <meta name="keywords" content="babyfacemaker, baby face generator, ai baby generator, future baby, parent photo combination, baby prediction">
+    <title>BabyFaceMaker - AI Baby Generator | See Your Future Child's Face</title>
+    <meta name="description" content="BabyFaceMaker is the leading AI baby generator that helps you visualize your future baby by combining photos of both parents. Upload your photos and see your baby's potential appearance within seconds!">
+    <meta name="keywords" content="babyfacemaker, baby face generator, ai baby generator, future baby, parent photo combination, baby prediction, genetic face generator, baby appearance prediction">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="/">
+    <link rel="canonical" href="https://babyfacemaker.pro/">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "BabyFaceMaker AI Baby Generator",
+      "description": "Generate predictions of your future baby's appearance by combining photos of both parents using advanced AI technology.",
+      "url": "https://babyfacemaker.pro/",
+      "applicationCategory": "Photography",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "datePublished": "2023-11-15",
+      "dateModified": "2023-12-15"
+    }
+    </script>
+    
     <!-- Open Graph tags for social media -->
     <meta property="og:title" content="BabyFaceMaker - AI Baby Generator | See Your Future Baby">
     <meta property="og:description" content="Use our advanced AI baby generator to visualize your future baby by combining both parents' photos with BabyFaceMaker's AI technology.">
-    <meta property="og:url" content="/">
+    <meta property="og:url" content="https://babyfacemaker.pro/">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://babyfacemaker.pro/images/social-preview.jpg">
+    
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BabyFaceMaker - AI Baby Generator | See Your Future Baby's Face">
+    <meta name="twitter:description" content="Use our advanced AI technology to visualize what your future baby might look like by combining both parents' photos. Try our free baby face generator today!">
+    <meta name="twitter:image" content="https://babyfacemaker.pro/images/social-preview.jpg">
 </head>
 <body>
     <header>
@@ -55,13 +83,15 @@
                     <div class="upload-box" id="father-upload">
                         <div class="upload-label">Father's Photo</div>
                         <div class="upload-preview" id="father-preview">
-                            <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="father-image-svg">
+                            <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="father-image-svg" aria-labelledby="father-svg-title father-svg-desc">
+                                <title id="father-svg-title">Father's Photo Placeholder</title>
+                                <desc id="father-svg-desc">An icon representing where the father's photo will be displayed</desc>
                                 <rect width="100%" height="100%" fill="#E5E5EA"/>
                                 <circle cx="100" cy="70" r="40" fill="#86868B"/>
                                 <rect x="50" y="120" width="100" height="80" rx="10" fill="#86868B"/>
                                 <text x="100" y="170" fill="#F2F2F7" font-family="Arial" font-size="14" text-anchor="middle">Father's Photo</text>
                             </svg>
-                            <img src="#" alt="Father placeholder" id="father-image" style="display:none;">
+                            <img src="#" alt="Father's uploaded photograph for baby prediction" id="father-image" style="display:none;">
                         </div>
                         <input type="file" id="father-input" accept="image/*" hidden>
                         <button class="upload-button" onclick="document.getElementById('father-input').click()">Upload Photo</button>
@@ -70,13 +100,15 @@
                     <div class="upload-box" id="mother-upload">
                         <div class="upload-label">Mother's Photo</div>
                         <div class="upload-preview" id="mother-preview">
-                            <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="mother-image-svg">
+                            <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="mother-image-svg" aria-labelledby="mother-svg-title mother-svg-desc">
+                                <title id="mother-svg-title">Mother's Photo Placeholder</title>
+                                <desc id="mother-svg-desc">An icon representing where the mother's photo will be displayed</desc>
                                 <rect width="100%" height="100%" fill="#E5E5EA"/>
                                 <circle cx="100" cy="70" r="40" fill="#86868B"/>
                                 <rect x="50" y="120" width="100" height="80" rx="10" fill="#86868B"/>
                                 <text x="100" y="170" fill="#F2F2F7" font-family="Arial" font-size="14" text-anchor="middle">Mother's Photo</text>
                             </svg>
-                            <img src="#" alt="Mother placeholder" id="mother-image" style="display:none;">
+                            <img src="#" alt="Mother's uploaded photograph for baby prediction" id="mother-image" style="display:none;">
                         </div>
                         <input type="file" id="mother-input" accept="image/*" hidden>
                         <button class="upload-button" onclick="document.getElementById('mother-input').click()">Upload Photo</button>
@@ -85,13 +117,15 @@
                     <div class="result-box" id="baby-result">
                         <div class="result-label">Your Baby</div>
                         <div class="result-preview" id="baby-preview">
-                            <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="baby-image-svg">
+                            <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="baby-image-svg" aria-labelledby="baby-svg-title baby-svg-desc">
+                                <title id="baby-svg-title">Baby Photo Placeholder</title>
+                                <desc id="baby-svg-desc">An icon representing where the predicted baby's image will be displayed</desc>
                                 <rect width="100%" height="100%" fill="#E5E5EA"/>
                                 <circle cx="100" cy="70" r="35" fill="#86868B"/>
                                 <rect x="65" y="120" width="70" height="60" rx="10" fill="#86868B"/>
                                 <text x="100" y="160" fill="#F2F2F7" font-family="Arial" font-size="14" text-anchor="middle">Baby Photo</text>
                             </svg>
-                            <img src="#" alt="Baby placeholder" id="baby-image" style="display:none;">
+                            <img src="#" alt="AI-generated baby face prediction based on parents' photos" id="baby-image" style="display:none;">
                         </div>
                     </div>
                 </div>
@@ -134,18 +168,18 @@
                 <div class="gallery-grid">
                     <div class="gallery-item">
                         <div class="parents-images">
-                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Example father's photo placeholder">
                                 <rect width="100%" height="100%" fill="#E5E5EA"/>
                                 <circle cx="50" cy="40" r="25" fill="#86868B"/>
                                 <rect x="30" y="70" width="40" height="30" rx="5" fill="#86868B"/>
                             </svg>
-                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Example mother's photo placeholder">
                                 <rect width="100%" height="100%" fill="#E5E5EA"/>
                                 <circle cx="50" cy="40" r="25" fill="#86868B"/>
                                 <rect x="30" y="70" width="40" height="30" rx="5" fill="#86868B"/>
                             </svg>
                         </div>
-                        <svg width="100%" height="180px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="100%" height="180px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Example baby prediction placeholder">
                             <rect width="100%" height="100%" fill="#E5E5EA"/>
                             <circle cx="100" cy="70" r="35" fill="#86868B"/>
                             <rect x="65" y="120" width="70" height="60" rx="10" fill="#86868B"/>
@@ -154,18 +188,18 @@
                     </div>
                     <div class="gallery-item">
                         <div class="parents-images">
-                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Example father's photo placeholder">
                                 <rect width="100%" height="100%" fill="#E5E5EA"/>
                                 <circle cx="50" cy="40" r="25" fill="#86868B"/>
                                 <rect x="30" y="70" width="40" height="30" rx="5" fill="#86868B"/>
                             </svg>
-                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Example mother's photo placeholder">
                                 <rect width="100%" height="100%" fill="#E5E5EA"/>
                                 <circle cx="50" cy="40" r="25" fill="#86868B"/>
                                 <rect x="30" y="70" width="40" height="30" rx="5" fill="#86868B"/>
                             </svg>
                         </div>
-                        <svg width="100%" height="180px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="100%" height="180px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Example baby prediction placeholder">
                             <rect width="100%" height="100%" fill="#E5E5EA"/>
                             <circle cx="100" cy="70" r="35" fill="#86868B"/>
                             <rect x="65" y="120" width="70" height="60" rx="10" fill="#86868B"/>
@@ -174,18 +208,18 @@
                     </div>
                     <div class="gallery-item">
                         <div class="parents-images">
-                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Example father's photo placeholder">
                                 <rect width="100%" height="100%" fill="#E5E5EA"/>
                                 <circle cx="50" cy="40" r="25" fill="#86868B"/>
                                 <rect x="30" y="70" width="40" height="30" rx="5" fill="#86868B"/>
                             </svg>
-                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Example mother's photo placeholder">
                                 <rect width="100%" height="100%" fill="#E5E5EA"/>
                                 <circle cx="50" cy="40" r="25" fill="#86868B"/>
                                 <rect x="30" y="70" width="40" height="30" rx="5" fill="#86868B"/>
                             </svg>
                         </div>
-                        <svg width="100%" height="180px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="100%" height="180px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Example baby prediction placeholder">
                             <rect width="100%" height="100%" fill="#E5E5EA"/>
                             <circle cx="100" cy="70" r="35" fill="#86868B"/>
                             <rect x="65" y="120" width="70" height="60" rx="10" fill="#86868B"/>

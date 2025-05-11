@@ -1,5 +1,5 @@
 # BabyFaceMaker.pro .htaccess
-# Version 1.0
+# Version 1.2
 
 # Add X-Robots-Tag header (simplified for better compatibility)
 <IfModule mod_headers.c>
@@ -11,7 +11,13 @@
 
 # Enable gzip compression
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/xml application/rss+xml
+    
+    # Remove browser bugs
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent
 </IfModule>
 
 # Set browser caching
@@ -21,11 +27,17 @@
     ExpiresByType image/jpeg "access plus 1 year"
     ExpiresByType image/gif "access plus 1 year"
     ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
     ExpiresByType image/svg+xml "access plus 1 month"
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
     ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
     ExpiresByType text/html "access plus 1 day"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
 
 # Security headers
@@ -36,14 +48,46 @@
     Header set X-Content-Type-Options "nosniff"
     # Control site embedding (CSRF protection)
     Header set X-Frame-Options "SAMEORIGIN"
+    # Enable HSTS
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    # Referrer Policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    # Feature Policy
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=(self)"
 </IfModule>
 
 # Redirect all non-www to www (uncomment when going live)
-# <IfModule mod_rewrite.c>
-#    RewriteEngine On
-#    RewriteCond %{HTTP_HOST} ^babyfacemaker\.pro [NC]
-#    RewriteRule ^(.*)$ https://www.babyfacemaker.pro/$1 [L,R=301]
-# </IfModule>
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirect HTTP to HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Redirect non-www to www
+    RewriteCond %{HTTP_HOST} ^babyfacemaker\.pro [NC]
+    RewriteRule ^(.*)$ https://www.babyfacemaker.pro/$1 [L,R=301]
+    
+    # Custom 404 page
+    ErrorDocument 404 /404.html
+    
+    # Remove trailing slashes
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+</IfModule>
 
 # Protect against directory browsing
-Options -Indexes 
+Options -Indexes
+
+# Prevent access to .htaccess file
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
+
+# Prevent access to specific files
+<FilesMatch "^(\.git|\.env|composer\.json|package\.json|config\.php)">
+    order allow,deny
+    deny from all
+</FilesMatch> 
