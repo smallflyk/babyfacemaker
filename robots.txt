@@ -1,5 +1,5 @@
 # BabyFaceMaker.pro robots.txt
-# Version 1.1
+# Version 1.2
 
 User-agent: *
 Allow: /
@@ -18,4 +18,4 @@ User-agent: AhrefsBot
 Crawl-delay: 10
 
 User-agent: SemrushBot
-Crawl-delay: 10 
+Crawl-delay: 10
