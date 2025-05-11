@@ -86,12 +86,19 @@
                             <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="father-image-svg" aria-labelledby="father-svg-title father-svg-desc">
                                 <title id="father-svg-title">Father's Photo Placeholder</title>
                                 <desc id="father-svg-desc">An icon representing where the father's photo will be displayed</desc>
-                                <rect width="100%" height="100%" fill="#E5E5EA"/>
-                                <circle cx="100" cy="70" r="40" fill="#86868B"/>
-                                <rect x="50" y="120" width="100" height="80" rx="10" fill="#86868B"/>
-                                <text x="100" y="170" fill="#F2F2F7" font-family="Arial" font-size="14" text-anchor="middle">Father's Photo</text>
+                                <rect width="100%" height="100%" fill="#f5f7fa"/>
+                                <path d="M100,60 C82.3,60 68,74.3 68,92 C68,109.7 82.3,124 100,124 C117.7,124 132,109.7 132,92 C132,74.3 117.7,60 100,60 Z" fill="#0080ff" opacity="0.2"/>
+                                <path d="M100,75 C91.7,75 85,81.7 85,90 C85,98.3 91.7,105 100,105 C108.3,105 115,98.3 115,90 C115,81.7 108.3,75 100,75 Z" fill="#0080ff" opacity="0.6"/>
+                                <path d="M142,155 C142,133.5 123.2,116 100,116 C76.8,116 58,133.5 58,155 L142,155 Z" fill="#0080ff" opacity="0.4"/>
+                                <text x="100" y="178" fill="#0080ff" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Father's Photo</text>
                             </svg>
                             <img src="#" alt="Father's uploaded photograph for baby prediction" id="father-image" style="display:none;">
+                            <div class="upload-instructions">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 5V19M5 12H19" stroke="#0080ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <p>Click to upload<br><span>Use a clear face photo</span></p>
+                            </div>
                         </div>
                         <input type="file" id="father-input" accept="image/*" hidden>
                         <button class="upload-button" onclick="document.getElementById('father-input').click()">Upload Photo</button>
@@ -103,12 +110,19 @@
                             <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="mother-image-svg" aria-labelledby="mother-svg-title mother-svg-desc">
                                 <title id="mother-svg-title">Mother's Photo Placeholder</title>
                                 <desc id="mother-svg-desc">An icon representing where the mother's photo will be displayed</desc>
-                                <rect width="100%" height="100%" fill="#E5E5EA"/>
-                                <circle cx="100" cy="70" r="40" fill="#86868B"/>
-                                <rect x="50" y="120" width="100" height="80" rx="10" fill="#86868B"/>
-                                <text x="100" y="170" fill="#F2F2F7" font-family="Arial" font-size="14" text-anchor="middle">Mother's Photo</text>
+                                <rect width="100%" height="100%" fill="#f5f7fa"/>
+                                <path d="M100,60 C82.3,60 68,74.3 68,92 C68,109.7 82.3,124 100,124 C117.7,124 132,109.7 132,92 C132,74.3 117.7,60 100,60 Z" fill="#FF6B8B" opacity="0.2"/>
+                                <path d="M100,75 C91.7,75 85,81.7 85,90 C85,98.3 91.7,105 100,105 C108.3,105 115,98.3 115,90 C115,81.7 108.3,75 100,75 Z" fill="#FF6B8B" opacity="0.6"/>
+                                <path d="M142,155 C142,133.5 123.2,116 100,116 C76.8,116 58,133.5 58,155 L142,155 Z" fill="#FF6B8B" opacity="0.4"/>
+                                <text x="100" y="178" fill="#FF6B8B" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Mother's Photo</text>
                             </svg>
                             <img src="#" alt="Mother's uploaded photograph for baby prediction" id="mother-image" style="display:none;">
+                            <div class="upload-instructions">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 5V19M5 12H19" stroke="#FF6B8B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <p>Click to upload<br><span>Use a clear face photo</span></p>
+                            </div>
                         </div>
                         <input type="file" id="mother-input" accept="image/*" hidden>
                         <button class="upload-button" onclick="document.getElementById('mother-input').click()">Upload Photo</button>
@@ -120,12 +134,21 @@
                             <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="baby-image-svg" aria-labelledby="baby-svg-title baby-svg-desc">
                                 <title id="baby-svg-title">Baby Photo Placeholder</title>
                                 <desc id="baby-svg-desc">An icon representing where the predicted baby's image will be displayed</desc>
-                                <rect width="100%" height="100%" fill="#E5E5EA"/>
-                                <circle cx="100" cy="70" r="35" fill="#86868B"/>
-                                <rect x="65" y="120" width="70" height="60" rx="10" fill="#86868B"/>
-                                <text x="100" y="160" fill="#F2F2F7" font-family="Arial" font-size="14" text-anchor="middle">Baby Photo</text>
+                                <rect width="100%" height="100%" fill="#f5f7fa"/>
+                                <circle cx="100" cy="80" r="40" fill="#8A51FF" opacity="0.1"/>
+                                <circle cx="100" cy="80" r="30" fill="#8A51FF" opacity="0.2"/>
+                                <path d="M100,65 C93.9,65 89,69.9 89,76 C89,82.1 93.9,87 100,87 C106.1,87 111,82.1 111,76 C111,69.9 106.1,65 100,65 Z" fill="#8A51FF" opacity="0.6"/>
+                                <path d="M125,135 C125,118.4 113.8,105 100,105 C86.2,105 75,118.4 75,135 L125,135 Z" fill="#8A51FF" opacity="0.3"/>
+                                <text x="100" y="178" fill="#8A51FF" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Baby Preview</text>
                             </svg>
                             <img src="#" alt="AI-generated baby face prediction based on parents' photos" id="baby-image" style="display:none;">
+                            <div class="result-message">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#8A51FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M15 9L9 15M9 9L15 15" stroke="#8A51FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <p>Upload both parent photos to see your baby prediction</p>
+                            </div>
                         </div>
                     </div>
                 </div>
