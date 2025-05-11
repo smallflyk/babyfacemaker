@@ -5,35 +5,35 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <!-- Main Page -->
     <url>
-        <loc>https://babyfacemaker.pro/</loc>
+        <loc>https://www.babyfacemaker.pro/</loc>
         <lastmod>2023-12-15T12:00:00+00:00</lastmod>
         <priority>1.00</priority>
         <changefreq>monthly</changefreq>
     </url>
     <!-- Privacy Policy Page -->
     <url>
-        <loc>https://babyfacemaker.pro/privacy.html</loc>
+        <loc>https://www.babyfacemaker.pro/privacy.html</loc>
         <lastmod>2023-12-15T12:00:00+00:00</lastmod>
         <priority>0.80</priority>
         <changefreq>yearly</changefreq>
     </url>
     <!-- Terms of Service Page -->
     <url>
-        <loc>https://babyfacemaker.pro/terms.html</loc>
+        <loc>https://www.babyfacemaker.pro/terms.html</loc>
         <lastmod>2023-12-15T12:00:00+00:00</lastmod>
         <priority>0.80</priority>
         <changefreq>yearly</changefreq>
     </url>
     <!-- Blog Page (Coming Soon) -->
     <url>
-        <loc>https://babyfacemaker.pro/blog/</loc>
+        <loc>https://www.babyfacemaker.pro/blog/</loc>
         <lastmod>2023-12-15T12:00:00+00:00</lastmod>
         <priority>0.70</priority>
         <changefreq>weekly</changefreq>
     </url>
     <!-- FAQ Page (Coming Soon) -->
     <url>
-        <loc>https://babyfacemaker.pro/faq.html</loc>
+        <loc>https://www.babyfacemaker.pro/faq.html</loc>
         <lastmod>2023-12-15T12:00:00+00:00</lastmod>
         <priority>0.90</priority>
         <changefreq>monthly</changefreq>

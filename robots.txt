@@ -1,5 +1,5 @@
 # BabyFaceMaker.pro robots.txt
-# Version 1.2
+# Version 1.3
 
 User-agent: *
 Allow: /
@@ -11,7 +11,7 @@ Disallow: /api/
 Disallow: /data/
 
 # Sitemap location with absolute URL
-Sitemap: https://babyfacemaker.pro/sitemap.xml
+Sitemap: https://www.babyfacemaker.pro/sitemap.xml
 
 # Crawl delay for heavy bots
 User-agent: AhrefsBot
