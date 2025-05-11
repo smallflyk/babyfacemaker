@@ -3,27 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BabyFaceMaker - Generate Your Future Baby's Face</title>
-    <meta name="description" content="BabyFaceMaker helps you visualize your future baby by combining photos of both parents. Upload your photos and see your baby's potential appearance!">
-    <meta name="keywords" content="babyfacemaker, baby face generator, future baby, parent photo combination, baby prediction">
-    <link rel="canonical" href="https://babyfacemaker.pro/">
+    <title>BabyFaceMaker - AI Baby Generator | Create Your Future Baby's Face</title>
+    <meta name="description" content="BabyFaceMaker is the leading AI baby generator that helps you visualize your future baby by combining photos of both parents. Upload your photos and see your baby's potential appearance!">
+    <meta name="keywords" content="babyfacemaker, baby face generator, ai baby generator, future baby, parent photo combination, baby prediction">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="/">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- Open Graph tags for social media -->
-    <meta property="og:title" content="BabyFaceMaker - See Your Future Baby">
-    <meta property="og:description" content="Visualize your future baby by combining both parents' photos with BabyFaceMaker's AI technology.">
-    <meta property="og:url" content="https://babyfacemaker.pro/">
+    <meta property="og:title" content="BabyFaceMaker - AI Baby Generator | See Your Future Baby">
+    <meta property="og:description" content="Use our advanced AI baby generator to visualize your future baby by combining both parents' photos with BabyFaceMaker's AI technology.">
+    <meta property="og:url" content="/">
     <meta property="og:type" content="website">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D21QFSRWG7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-D21QFSRWG7');
-</script>
-</script>
 </head>
 <body>
     <header>
@@ -31,6 +24,7 @@
             <div class="logo">
                 <a href="/">
                     <span class="logo-text">BabyFaceMaker</span>
+                    <span class="logo-tagline">AI Baby Generator</span>
                 </a>
             </div>
             <nav>
@@ -46,22 +40,28 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Discover Your Future Baby's Face with BabyFaceMaker</h1>
-                <p>Upload photos of both parents and our advanced AI will predict what your future baby might look like based on genetic features and facial characteristics.</p>
+                <h1>Discover Your Future Baby's Face with BabyFaceMaker AI Baby Generator</h1>
+                <p>Upload photos of both parents and our advanced AI baby generator will predict what your future baby might look like based on genetic features and facial characteristics.</p>
                 <a href="#upload-section" class="cta-button">Get Started</a>
             </div>
         </section>
 
         <section id="upload-section" class="upload-section">
             <div class="container">
-                <h2>Upload Parent Photos</h2>
+                <h2>Upload Parent Photos to Our AI Baby Generator</h2>
                 <p>Upload clear frontal face photos of both parents to create an AI-powered prediction of your future baby's appearance using our BabyFaceMaker technology.</p>
                 
                 <div class="upload-container">
                     <div class="upload-box" id="father-upload">
                         <div class="upload-label">Father's Photo</div>
                         <div class="upload-preview" id="father-preview">
-                            <img src="images/male-placeholder.png" alt="Father placeholder" id="father-image">
+                            <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="father-image-svg">
+                                <rect width="100%" height="100%" fill="#E5E5EA"/>
+                                <circle cx="100" cy="70" r="40" fill="#86868B"/>
+                                <rect x="50" y="120" width="100" height="80" rx="10" fill="#86868B"/>
+                                <text x="100" y="170" fill="#F2F2F7" font-family="Arial" font-size="14" text-anchor="middle">Father's Photo</text>
+                            </svg>
+                            <img src="#" alt="Father placeholder" id="father-image" style="display:none;">
                         </div>
                         <input type="file" id="father-input" accept="image/*" hidden>
                         <button class="upload-button" onclick="document.getElementById('father-input').click()">Upload Photo</button>
@@ -70,7 +70,13 @@
                     <div class="upload-box" id="mother-upload">
                         <div class="upload-label">Mother's Photo</div>
                         <div class="upload-preview" id="mother-preview">
-                            <img src="images/female-placeholder.png" alt="Mother placeholder" id="mother-image">
+                            <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="mother-image-svg">
+                                <rect width="100%" height="100%" fill="#E5E5EA"/>
+                                <circle cx="100" cy="70" r="40" fill="#86868B"/>
+                                <rect x="50" y="120" width="100" height="80" rx="10" fill="#86868B"/>
+                                <text x="100" y="170" fill="#F2F2F7" font-family="Arial" font-size="14" text-anchor="middle">Mother's Photo</text>
+                            </svg>
+                            <img src="#" alt="Mother placeholder" id="mother-image" style="display:none;">
                         </div>
                         <input type="file" id="mother-input" accept="image/*" hidden>
                         <button class="upload-button" onclick="document.getElementById('mother-input').click()">Upload Photo</button>
@@ -79,7 +85,13 @@
                     <div class="result-box" id="baby-result">
                         <div class="result-label">Your Baby</div>
                         <div class="result-preview" id="baby-preview">
-                            <img src="images/baby-placeholder.png" alt="Baby placeholder" id="baby-image">
+                            <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="baby-image-svg">
+                                <rect width="100%" height="100%" fill="#E5E5EA"/>
+                                <circle cx="100" cy="70" r="35" fill="#86868B"/>
+                                <rect x="65" y="120" width="70" height="60" rx="10" fill="#86868B"/>
+                                <text x="100" y="160" fill="#F2F2F7" font-family="Arial" font-size="14" text-anchor="middle">Baby Photo</text>
+                            </svg>
+                            <img src="#" alt="Baby placeholder" id="baby-image" style="display:none;">
                         </div>
                     </div>
                 </div>
@@ -94,17 +106,17 @@
 
         <section id="how-it-works" class="how-it-works">
             <div class="container">
-                <h2>How BabyFaceMaker Works</h2>
+                <h2>How BabyFaceMaker AI Baby Generator Works</h2>
                 <div class="steps">
                     <div class="step">
                         <div class="step-icon">1</div>
                         <h3>Upload Photos</h3>
-                        <p>Upload clear photos of both parents using our BabyFaceMaker tool.</p>
+                        <p>Upload clear photos of both parents using our BabyFaceMaker AI baby generator tool.</p>
                     </div>
                     <div class="step">
                         <div class="step-icon">2</div>
                         <h3>AI Processing</h3>
-                        <p>Our BabyFaceMaker algorithm analyzes facial features, genetic patterns, and hereditary traits.</p>
+                        <p>Our advanced AI baby generator analyzes facial features, genetic patterns, and hereditary traits.</p>
                     </div>
                     <div class="step">
                         <div class="step-icon">3</div>
@@ -117,29 +129,68 @@
 
         <section id="gallery" class="gallery">
             <div class="container">
-                <h2>BabyFaceMaker Gallery</h2>
+                <h2>BabyFaceMaker AI Baby Generator Gallery</h2>
                 <p>See examples of baby face predictions generated with our advanced BabyFaceMaker AI technology.</p>
                 <div class="gallery-grid">
                     <div class="gallery-item">
                         <div class="parents-images">
-                            <img src="images/father1.jpg" alt="Father 1">
-                            <img src="images/mother1.jpg" alt="Mother 1">
+                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="#E5E5EA"/>
+                                <circle cx="50" cy="40" r="25" fill="#86868B"/>
+                                <rect x="30" y="70" width="40" height="30" rx="5" fill="#86868B"/>
+                            </svg>
+                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="#E5E5EA"/>
+                                <circle cx="50" cy="40" r="25" fill="#86868B"/>
+                                <rect x="30" y="70" width="40" height="30" rx="5" fill="#86868B"/>
+                            </svg>
                         </div>
-                        <img src="images/baby1.jpg" alt="Baby 1" class="baby-result-image">
+                        <svg width="100%" height="180px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#E5E5EA"/>
+                            <circle cx="100" cy="70" r="35" fill="#86868B"/>
+                            <rect x="65" y="120" width="70" height="60" rx="10" fill="#86868B"/>
+                            <text x="100" y="160" fill="#F2F2F7" font-family="Arial" font-size="14" text-anchor="middle">Example Baby</text>
+                        </svg>
                     </div>
                     <div class="gallery-item">
                         <div class="parents-images">
-                            <img src="images/father2.jpg" alt="Father 2">
-                            <img src="images/mother2.jpg" alt="Mother 2">
+                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="#E5E5EA"/>
+                                <circle cx="50" cy="40" r="25" fill="#86868B"/>
+                                <rect x="30" y="70" width="40" height="30" rx="5" fill="#86868B"/>
+                            </svg>
+                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="#E5E5EA"/>
+                                <circle cx="50" cy="40" r="25" fill="#86868B"/>
+                                <rect x="30" y="70" width="40" height="30" rx="5" fill="#86868B"/>
+                            </svg>
                         </div>
-                        <img src="images/baby2.jpg" alt="Baby 2" class="baby-result-image">
+                        <svg width="100%" height="180px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#E5E5EA"/>
+                            <circle cx="100" cy="70" r="35" fill="#86868B"/>
+                            <rect x="65" y="120" width="70" height="60" rx="10" fill="#86868B"/>
+                            <text x="100" y="160" fill="#F2F2F7" font-family="Arial" font-size="14" text-anchor="middle">Example Baby</text>
+                        </svg>
                     </div>
                     <div class="gallery-item">
                         <div class="parents-images">
-                            <img src="images/father3.jpg" alt="Father 3">
-                            <img src="images/mother3.jpg" alt="Mother 3">
+                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="#E5E5EA"/>
+                                <circle cx="50" cy="40" r="25" fill="#86868B"/>
+                                <rect x="30" y="70" width="40" height="30" rx="5" fill="#86868B"/>
+                            </svg>
+                            <svg width="100%" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="#E5E5EA"/>
+                                <circle cx="50" cy="40" r="25" fill="#86868B"/>
+                                <rect x="30" y="70" width="40" height="30" rx="5" fill="#86868B"/>
+                            </svg>
                         </div>
-                        <img src="images/baby3.jpg" alt="Baby 3" class="baby-result-image">
+                        <svg width="100%" height="180px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#E5E5EA"/>
+                            <circle cx="100" cy="70" r="35" fill="#86868B"/>
+                            <rect x="65" y="120" width="70" height="60" rx="10" fill="#86868B"/>
+                            <text x="100" y="160" fill="#F2F2F7" font-family="Arial" font-size="14" text-anchor="middle">Example Baby</text>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -147,26 +198,26 @@
 
         <section id="about" class="about">
             <div class="container">
-                <h2>About BabyFaceMaker</h2>
-                <p>BabyFaceMaker uses cutting-edge artificial intelligence to create realistic predictions of how your future baby might look. Our advanced algorithm goes beyond simple photo blending to analyze facial features, genetic traits, and family resemblances for generating a unique baby face prediction.</p>
-                <p>While BabyFaceMaker provides entertaining visualizations based on complex genetic modeling, please note that actual genetic inheritance is complex and a real baby may look different. This tool is for entertainment purposes only.</p>
+                <h2>About BabyFaceMaker AI Baby Generator</h2>
+                <p>BabyFaceMaker uses cutting-edge artificial intelligence to create realistic predictions of how your future baby might look. Our advanced AI baby generator goes beyond simple photo blending to analyze facial features, genetic traits, and family resemblances for generating a unique baby face prediction.</p>
+                <p>While our AI baby generator provides entertaining visualizations based on complex genetic modeling, please note that actual genetic inheritance is complex and a real baby may look different. This tool is for entertainment purposes only.</p>
             </div>
         </section>
 
         <section class="faq">
             <div class="container">
-                <h2>Frequently Asked Questions</h2>
+                <h2>Frequently Asked Questions About Our AI Baby Generator</h2>
                 <div class="faq-item">
-                    <h3>Is BabyFaceMaker accurate?</h3>
-                    <p>BabyFaceMaker provides a scientifically-informed prediction based on genetic modeling and parents' features, but real genetic inheritance is complex and unpredictable. Our AI uses advanced algorithms to create realistic predictions, not just simple image blending.</p>
+                    <h3>Is BabyFaceMaker AI baby generator accurate?</h3>
+                    <p>BabyFaceMaker provides a scientifically-informed prediction based on genetic modeling and parents' features, but real genetic inheritance is complex and unpredictable. Our AI baby generator uses advanced algorithms to create realistic predictions, not just simple image blending.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Is my data safe with BabyFaceMaker?</h3>
-                    <p>Yes, BabyFaceMaker processes all images on your device. We don't store your photos on our servers after processing.</p>
+                    <p>Yes, BabyFaceMaker processes all images on your device. Our AI baby generator doesn't store your photos on our servers after processing.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Can I use BabyFaceMaker on my phone?</h3>
-                    <p>Absolutely! The BabyFaceMaker website is fully responsive and works on all devices.</p>
+                    <p>Absolutely! The BabyFaceMaker AI baby generator website is fully responsive and works on all devices.</p>
                 </div>
             </div>
         </section>
@@ -177,7 +228,7 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <span class="logo-text">BabyFaceMaker</span>
-                    <p>Visualize your future baby's face</p>
+                    <p>AI Baby Generator - Visualize your future baby's face</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -199,7 +250,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 BabyFaceMaker.pro. All rights reserved.</p>
+                <p>&copy; 2023 BabyFaceMaker.pro - Advanced AI Baby Generator. All rights reserved.</p>
             </div>
         </div>
     </footer>

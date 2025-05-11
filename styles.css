@@ -108,6 +108,14 @@ header .container {
     text-fill-color: transparent;
 }
 
+.logo-tagline {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: -0.3rem;
+    font-weight: 500;
+}
+
 nav ul {
     display: flex;
     list-style: none;

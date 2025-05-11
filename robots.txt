@@ -1,0 +1,21 @@
+# BabyFaceMaker.pro robots.txt
+# Version 1.0
+
+User-agent: *
+Allow: /
+
+# Allow all bots to access the entire site
+Disallow: /images/raw/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /data/
+
+# Sitemap location
+Sitemap: /sitemap.xml
+
+# Crawl delay for heavy bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10 
