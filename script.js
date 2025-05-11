@@ -13,6 +13,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const generateButton = document.getElementById('generate-button');
     const loadingIndicator = document.getElementById('loading-indicator');
     
+    // 创建图像处理Worker
+    let imageProcessor = null;
+    try {
+        imageProcessor = new Worker('imageProcessor.worker.js');
+        
+        // 监听Worker消息
+        imageProcessor.addEventListener('message', handleWorkerMessage);
+    } catch (error) {
+        console.error("Web Worker创建失败，将使用主线程处理:", error);
+    }
+    
     // Track upload status
     let fatherUploaded = false;
     let motherUploaded = false;
@@ -99,32 +110,134 @@ document.addEventListener('DOMContentLoaded', function() {
             // Make sure baby image element is visible
             babyPreview.style.display = 'block';
             
-            // Simulate API processing time (3.5 seconds)
-            setTimeout(function() {
-                // Use advanced baby face generation algorithm
-                try {
-                    advancedBabyFaceGeneration();
-                } catch (error) {
-                    console.error("Error generating baby face:", error);
-                    alert("There was an error generating the baby face. Please try uploading different photos.");
-                    
-                    // Show SVG placeholder again if there was an error
-                    if (babySvg) {
-                        babySvg.style.display = 'block';
+            // 如果支持Web Worker，使用Worker处理
+            if (imageProcessor) {
+                processWithWorker();
+            } else {
+                // 使用主线程处理（模拟API处理时间）
+                setTimeout(function() {
+                    try {
+                        advancedBabyFaceGeneration();
+                    } catch (error) {
+                        handleProcessingError(error);
                     }
-                    babyPreview.style.display = 'none';
-                }
-                
-                // Hide loading indicator
-                loadingIndicator.hidden = true;
-                generateButton.disabled = false;
-            }, 3500);
+                    
+                    // Hide loading indicator
+                    loadingIndicator.hidden = true;
+                    generateButton.disabled = false;
+                }, 3500);
+            }
         } catch (error) {
             console.error("Error in generate baby face function:", error);
             loadingIndicator.hidden = true;
             generateButton.disabled = false;
         }
     }
+    
+    /**
+     * 使用Web Worker处理图像
+     */
+    function processWithWorker() {
+        // 创建两个Canvas来获取图像数据
+        const fatherCanvas = document.createElement('canvas');
+        const fatherCtx = fatherCanvas.getContext('2d');
+        fatherCanvas.width = 400;
+        fatherCanvas.height = 400;
+        
+        const motherCanvas = document.createElement('canvas');
+        const motherCtx = motherCanvas.getContext('2d');
+        motherCanvas.width = 400;
+        motherCanvas.height = 400;
+        
+        // 确保图像已加载
+        if (!fatherPreview.complete || !motherPreview.complete || 
+            fatherPreview.naturalWidth === 0 || motherPreview.naturalWidth === 0) {
+            throw new Error("父母图像未完全加载");
+        }
+        
+        // 绘制父母图像到Canvas
+        try {
+            fatherCtx.drawImage(fatherPreview, 0, 0, 400, 400);
+            motherCtx.drawImage(motherPreview, 0, 0, 400, 400);
+        } catch (error) {
+            console.error("绘制父母图像时出错:", error);
+            throw new Error("处理父母图像失败");
+        }
+        
+        // 获取图像数据
+        const fatherImageData = fatherCtx.getImageData(0, 0, 400, 400);
+        const motherImageData = motherCtx.getImageData(0, 0, 400, 400);
+        
+        // 发送数据到Worker处理
+        imageProcessor.postMessage({
+            type: 'processBabyFace',
+            fatherImageData: fatherImageData,
+            motherImageData: motherImageData
+        });
+    }
+    
+    /**
+     * 处理Worker返回的消息
+     */
+    function handleWorkerMessage(e) {
+        const data = e.data;
+        
+        if (data.type === 'processingComplete' && data.success) {
+            // 获取处理后的图像数据
+            const resultImageData = data.resultImageData;
+            
+            // 创建Canvas显示结果
+            const resultCanvas = document.createElement('canvas');
+            const resultCtx = resultCanvas.getContext('2d');
+            resultCanvas.width = resultImageData.width;
+            resultCanvas.height = resultImageData.height;
+            
+            // 创建新的ImageData对象
+            const imageData = new ImageData(
+                new Uint8ClampedArray(resultImageData.data), 
+                resultImageData.width, 
+                resultImageData.height
+            );
+            
+            // 绘制处理后的图像
+            resultCtx.putImageData(imageData, 0, 0);
+            
+            // 设置结果为baby图像
+            babyPreview.style.display = 'block';
+            babyPreview.src = resultCanvas.toDataURL('image/jpeg');
+            
+            // 添加动画效果
+            babyPreview.style.transition = 'all 1s ease';
+            babyPreview.style.transform = 'scale(1.08)';
+            setTimeout(() => {
+                babyPreview.style.transform = 'scale(1)';
+            }, 900);
+        }
+        else if (data.type === 'processingError' || !data.success) {
+            handleProcessingError(new Error(data.error || "处理失败"));
+        }
+        
+        // 隐藏加载指示器
+        loadingIndicator.hidden = true;
+        generateButton.disabled = false;
+    }
+    
+    /**
+     * 处理图像处理错误
+     */
+    function handleProcessingError(error) {
+        console.error("生成婴儿面孔时出错:", error);
+        alert("生成婴儿面孔时出错。请尝试上传不同的照片。");
+        
+        // 如果出错，显示SVG占位符
+        const babySvg = document.getElementById('baby-image-svg');
+        if (babySvg) {
+            babySvg.style.display = 'block';
+        }
+        babyPreview.style.display = 'none';
+    }
+    
+    // 以下是原始的图像处理函数，当Web Worker不可用时使用
     
     /**
      * Advanced baby face generation that creates a realistic baby face
